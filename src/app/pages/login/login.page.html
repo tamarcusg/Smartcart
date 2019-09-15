@@ -1,0 +1,22 @@
+<!-- <ion-header>
+  <ion-toolbar color="primary">
+    <ion-title align = "center">Login</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content padding>
+  <img alt = "logo" src = '../../../assets/imgs/logo1.png' align = "center" id = "smartCart">
+  <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()" class = "formBuilder">
+
+    <ion-item>
+      <ion-input type="email" formControlName="email" placeholder = "Email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" formControlName="password" placeholder = "Password"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Login</ion-button>
+    <ion-button expand="full" type="button" (click)="register()">Register</ion-button>
+  </form>
+</ion-content>

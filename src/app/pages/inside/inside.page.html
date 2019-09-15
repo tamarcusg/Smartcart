@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title align = "center">Select Store</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>
+  <!-- Welcome to the members only area!
+ 
+  <p>{{ data }}</p> -->
+  <ion-list>
+    <img alt = "logo" src = '../../../assets/imgs/walmart.jpg' align = "center" (click) = "storeSelection('Walmart')">
+    <img alt = "logo" src = '../../../assets/imgs/target-logo.png' align = "center" (click) = "storeSelection('Target')">
+    <img alt = "logo" src = '../../../assets/imgs/food_lion.jpg' align = "center" (click) = "storeSelection('Food Lion')">
+    <img alt = "logo" src = '../../../assets/imgs/publix.jpg' align = "center" (click) = "storeSelection('Publix')">
+  </ion-list>
+<!--  
+  <ion-button expand="full" (click)="mapPage()">Check Map</ion-button>
+  <ion-button expand="full" (click)="logout()">Logout</ion-button>
+  <ion-button expand="full" (click)="clearToken()">Clear JWT</ion-button> -->
+ 
+</ion-content>

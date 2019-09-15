@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color = "primary">
+      <ion-buttons slot = "start">
+          <ion-back-button  defaultHref="/inside"></ion-back-button> 
+      </ion-buttons>
+      
+      <ion-title>{{title}}</ion-title>
+
+      <ion-button *ngIf = "!newCart" slot = "end" (click) = "createCart()">
+            <ion-icon name="add"></ion-icon>
+
+    </ion-button>
+    
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div *ngIf = "!newCart">
+
+        <!-- Add on click cart to view items in cart edit..etc maybe new page view for this
+    or a boolean on this page that changes ion content with back button setting it back
+    to true -->
+  <!-- <ion-list *ngFor = "let cart of carts">
+    <ion-item  (click) = "cartDetails(cart._id,cart.name)">{{cart.name}}</ion-item>
+  </ion-list> -->
+
+  <ion-item-sliding *ngFor = "let cart of carts">
+    <ion-item>
+      <ion-label>
+        {{cart.name}}
+      </ion-label>
+    </ion-item>
+    <ion-item-options>
+      <ion-item-option color="primary" (click) = "cartDetails(cart._id,cart.name)">
+        <ion-icon slot="end"></ion-icon>
+        Update
+      </ion-item-option>
+      <ion-item-option color="danger" (click) = "destroyCart(cart._id)">
+        <ion-icon slot="end"></ion-icon>
+        Delete
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</div>
+
+<div *ngIf = "newCart">
+    <form [formGroup]="cartForm" (ngSubmit)="mapPage()">
+    <ion-item>
+        <ion-input type="text" formControlName="newCartName" placeholder = "Enter Cart Name"></ion-input>
+    </ion-item>  
+    </form>
+</div>
+</ion-content>
+

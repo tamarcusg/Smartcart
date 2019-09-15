@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar color = "primary">
+    <ion-buttons slot="start">
+        <ion-back-button  defaultHref="/carts"></ion-back-button>
+    </ion-buttons>
+</ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-grid class = "grid">
+        <ion-row *ngFor="let row of grid">
+            <ion-col *ngFor="let file_uri of row">
+              <img [src] = "file_uri">
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+  </ion-content>

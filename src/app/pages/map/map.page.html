@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color = "primary">
+    <ion-buttons slot="start">
+        <ion-back-button  defaultHref="/inside"></ion-back-button>
+    </ion-buttons>
+
+    <ion-button (click) = "goToMap()" slot="end"> 
+        <ion-icon name="compass"></ion-icon>
+    </ion-button>
+    <ion-button (click) = "sendData()" slot="end">
+        <ion-icon name="checkmark"></ion-icon>
+    </ion-button>
+  <ion-title *ngIf = "sliderCheck == 1">Products List</ion-title>
+  <ion-title *ngIf = "sliderCheck == -1">Your Cart</ion-title>
+</ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+      <ion-slides pager="true" [options]="slideOpts" (ionSlideDidChange)="changeSlider()">
+        <ion-slide>
+          <div>
+            <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="setFilteredItems()"></ion-searchbar>
+            <ion-list>
+              <ion-item *ngFor="let item of items" (click) = "addToCart(item)">
+                {{ item }}
+              </ion-item>
+            </ion-list>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div> 
+            <ion-list>
+              <ion-item *ngFor="let item of userCart">
+                {{ item }}
+              </ion-item>
+            </ion-list>
+          </div>  
+        </ion-slide>
+      </ion-slides>
+  </ion-content>
+
